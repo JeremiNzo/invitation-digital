@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Graduación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 25px;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #a8d5a8 0%, #8e44ad 50%, #a8d5a8 100%);
+            z-index: 10;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            color: #2c3e50;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: url('flores.png') no-repeat center center;
+            background-size: contain;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            width: 80px;
+            height: 80px;
+            background: url('flores.png') no-repeat center center;
+            background-size: contain;
+            opacity: 0.5;
+            transform: rotate(180deg);
+            z-index: 1;
+        }
+
+        .graduation-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header h2 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            color: #2c3e50;
+        }
+
+        .header p {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .graduation-photo-section {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-top-band {
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            clip-path: polygon(0% 100%, 10% 80%, 20% 100%, 30% 80%, 40% 100%, 50% 80%, 60% 100%, 70% 80%, 80% 100%, 90% 80%, 100% 100%, 100% 0%, 0% 0%);
+        }
+
+        .graduation-photo-section img {
+            filter: brightness(1.1) contrast(1.1) saturate(1.2);
+            transition: transform 0.3s ease;
+        }
+
+        .graduation-photo-section:hover img {
+            transform: scale(1.02);
+        }
+
+        .date-section {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .date-section h3 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 36px;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: normal;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .profile-section {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+        }
+
+        .profile-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border: 4px solid #a8d5a8;
+            border-radius: 15px;
+            padding: 8px;
+            background: white;
+            box-shadow: 0 8px 25px rgba(168, 213, 168, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #a8d5a8, #95c695, #a8d5a8);
+            border-radius: 17px;
+            z-index: -1;
+        }
+
+        .quote-section {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+        }
+
+        .quote-text {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .quote-author {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .blessing-text {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .timeline-section {
+            padding: 30px 20px;
+            background: white;
+            position: relative;
+        }
+
+        .timeline-title-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .timeline-title-text p {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            color: #2c3e50;
+            margin: 5px 0;
+            font-weight: 500;
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+            background: #e8f5e8;
+            padding: 30px 20px;
+            border-radius: 15px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            right: 8%;
+            height: 2px;
+            background: #2c3e50;
+            z-index: 1;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .timeline-icon {
+            margin-bottom: 15px;
+            position: relative;
+            background: #e8f5e8;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .timeline-icon::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 15px;
+            background: #2c3e50;
+        }
+
+        .timeline-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .timeline-time {
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 30px 20px;
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-250%);
+            width: 80px;
+            height: 200px;
+            background: url('flores.png') no-repeat center center;
+            background-size: contain;
+            opacity: 0.8;
+            z-index: 1;
+        }
+        .content::after {
+            content: '';
+            position: absolute;
+            left: 270px;
+            top: 50%;
+            transform: translateY(-250%);
+            width: 80px;
+            height: 200px;
+            background: url('flores.png') no-repeat center center;
+            background-size: contain;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .event-section {
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .event-section h2 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .event-info {
+            margin-bottom: 20px;
+        }
+
+        .event-time {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: #a8d5a8;
+            margin-bottom: 8px;
+        }
+
+        .event-location {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .location-button {
+            background: #a8d5a8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(168, 213, 168, 0.3);
+        }
+
+        .location-button:hover {
+            background: #95c695;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(168, 213, 168, 0.4);
+        }
+
+        .rsvp-info {
+            text-align: center;
+        }
+
+        .rsvp-info p {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .rsvp-button {
+            background: #a8d5a8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(168, 213, 168, 0.3);
+        }
+
+        .rsvp-button:hover {
+            background: #95c695;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(168, 213, 168, 0.4);
+        }
+
+        .gift-info {
+            text-align: center;
+        }
+
+        .gift-info p {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .gift-option {
+            font-weight: bold;
+            font-size: 16px;
+            color: #a8d5a8;
+            margin-bottom: 15px;
+        }
+
+        .gift-icon {
+            font-size: 35px;
+            color: #a8d5a8;
+        }
+
+        .section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #a8d5a8 0%, #95c695 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(168, 213, 168, 0.4), 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .button:hover::before {
+            left: 100%;
+        }
+
+        .button:hover {
+            background: linear-gradient(135deg, #95c695 0%, #7fb37f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(168, 213, 168, 0.5), 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .button.secondary {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            color: #2c3e50;
+            border: 2px solid #a8d5a8;
+            box-shadow: 0 4px 15px rgba(168, 213, 168, 0.2), 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .button.secondary:hover {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6c3 100%);
+            border-color: #95c695;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(168, 213, 168, 0.3), 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .photo-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.5);
+            border: 1px solid rgba(168, 213, 168, 0.2);
+        }
+
+        .graduation-photo {
+            margin-bottom: 20px;
+        }
+
+        .graduation-photo img {
+            border: 3px solid #a8d5a8;
+            box-shadow: 0 4px 15px rgba(168, 213, 168, 0.2);
+        }
+
+        .photo-upload {
+            border: 2px dashed #a8d5a8;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .photo-upload:hover {
+            border-color: #95c695;
+            background: #f8fff8;
+        }
+
+        .photo-upload input[type="file"] {
+            display: none;
+        }
+
+        .photo-upload label {
+            cursor: pointer;
+            display: block;
+        }
+
+        .photo-icon {
+            font-size: 40px;
+            color: #a8d5a8;
+            margin-bottom: 15px;
+        }
+
+        .photo-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .photo-preview img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .event-details {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.5);
+            border: 1px solid rgba(168, 213, 168, 0.2);
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid #a8d5a8;
+        }
+
+        .event-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.08);
+        }
+
+        .event-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #a8d5a8;
+        }
+
+        .event-text {
+            flex: 1;
+        }
+
+        .event-time {
+            font-weight: bold;
+            color: #a8d5a8;
+        }
+
+        .event-name {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .graduation-footer-image {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graduation-footer-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(1.1) contrast(1.1) saturate(1.2);
+            transition: transform 0.3s ease;
+            clip-path: polygon(0% 8%, 8% 5%, 16% 7%, 24% 4%, 32% 6%, 40% 3%, 48% 5%, 56% 2%, 64% 4%, 72% 1%, 80% 3%, 88% 0%, 96% 2%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .graduation-footer-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(168, 213, 168, 0.1) 0%, rgba(142, 68, 173, 0.1) 100%);
+            z-index: 1;
+            clip-path: polygon(0% 8%, 8% 5%, 16% 7%, 24% 4%, 32% 6%, 40% 3%, 48% 5%, 56% 2%, 64% 4%, 72% 1%, 80% 3%, 88% 0%, 96% 2%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .graduation-footer-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            color: #2c3e50;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 22px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 15px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="graduation-icon">🎓</div>
+            <h1>GRADUACIÓN</h1>
+            <h2>Jassmin Brighith Contreras Olivera</h2>
+            <p>FILOSOFÍA</p>
+            <p>Universidad Nacional de Educación Enrique Guzmán y Valle</p>
+        </div>
+
+        <div class="graduation-photo-section">
+            <div class="photo-top-band"></div>
+            <img src="graduada.jpg" alt="Graduada celebrando" style="width: 100%; height: 250px; object-fit: cover; display: block; clip-path: polygon(0% 3%, 10% 1%, 20% 2%, 30% 0%, 40% 1%, 50% 0%, 60% 1%, 70% 0%, 80% 1%, 90% 0%, 100% 2%, 100% 97%, 90% 99%, 80% 98%, 70% 99%, 60% 98%, 50% 99%, 40% 98%, 30% 99%, 20% 98%, 10% 99%, 0% 97%);">
+        </div>
+
+        <div class="date-section">
+            <h3>DICIEMBRE 12 2025</h3>
+        </div>
+
+        <div class="profile-section">
+            <div class="profile-frame">
+                <img src="perfil.png" alt="Perfil de graduada" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+            </div>
+        </div>
+
+        <div class="quote-section">
+            <p class="quote-text">"UN HOMBRE SABIO CONSTRUIRÁ MÁS<br>
+            OPORTUNIDADES QUE LAS QUE ENCUENTRA"</p>
+            <p class="quote-author">- FRANCIS BACON</p>
+            <p class="blessing-text">CON LA BENDICIÓN DE DIOS Y MIS PADRES</p>
+        </div>
+
+        <div class="timeline-section">
+            <div class="timeline-title-text">
+                <p>TENEMOS EL HONOR DE INVITARTE A CELEBRAR</p>
+                <p>MI GRADUACIÓN</p>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="iglesia.png" alt="Iglesia" style="width: 25px; height: 25px;">
+                    </div>
+                    <div class="timeline-text">
+                        <div class="timeline-title">MISA</div>
+                        <div class="timeline-time">15:00 HRS.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="confeti.png" alt="Confeti" style="width: 25px; height: 25px;">
+                    </div>
+                    <div class="timeline-text">
+                        <div class="timeline-title">RECEPCIÓN</div>
+                        <div class="timeline-time">17:00 HRS.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="brindis.png" alt="Brindis" style="width: 25px; height: 25px;">
+                    </div>
+                    <div class="timeline-text">
+                        <div class="timeline-title">BRINDIS</div>
+                        <div class="timeline-time">18:30 HRS.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="comida.png" alt="Comida" style="width: 25px; height: 25px;">
+                    </div>
+                    <div class="timeline-text">
+                        <div class="timeline-title">CENA</div>
+                        <div class="timeline-time">20:00 HRS.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="event-section">
+                <h2>Misa de Salud</h2>
+                <div class="event-info">
+                    <div class="event-time">15:00 HRS.</div>
+                    <div class="event-location">PARROQUIA SAN MIGUEL<br>Av. Papa Paulo, Calle España</div>
+                    <button class="location-button" onclick="openLocation()">VER UBICACIÓN</button>
+                </div>
+            </div>
+
+            <div class="event-section">
+                <h2>Recepción</h2>
+                <div class="event-info">
+                    <div class="event-time">17:00 HRS.</div>
+                    <div class="event-location">SALÓN LA ROCHELLE<br>Av. Santos Dumont, 3er y 4to Anillo</div>
+                    <button class="location-button" onclick="openLocation()">VER UBICACIÓN</button>
+                </div>
+            </div>
+
+            <div class="event-section">
+                <h2>Confirma tu Asistencia</h2>
+                <div class="rsvp-info">
+                    <p>POR FAVOR CONFIRMANOS TU ASISTENCIA<br>ANTES DEL 15 DE DICIEMBRE</p>
+                    <button class="rsvp-button" onclick="openRSVP()">ENVIAR MENSAJE</button>
+                </div>
+            </div>
+
+            <div class="event-section">
+                <h2>Sugerencia de regalos</h2>
+                <div class="gift-info">
+                    <p>REGALO OBLIGATORIO:<br>¡SU PRESENCIA!</p>
+                    <p>PERO SI QUIERES REGALAR ALGO TE<br>DAMOS ESTA OPCIÓN:</p>
+                    <p class="gift-option">EFECTIVO</p>
+                    <div class="gift-icon">💌</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="graduation-footer-image">
+            <img src="graduados.jpg" alt="Graduados celebrando" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+        </div>
+
+        <div class="footer">
+            <p>¡Esperamos verte en esta celebración especial!</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir ubicación en Google Maps
+        function openLocation() {
+            const address = "Blvd. Universidad No. 320, Col. San Ángel, CDMX";
+            const encodedAddress = encodeURIComponent(address);
+            window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+        }
+
+        // Función para abrir RSVP
+        function openRSVP() {
+            const message = "¡Hola! Confirmo mi asistencia a la fiesta de graduación. ¡Gracias por la invitación!";
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/5215512345678?text=${encodedMessage}`, '_blank');
+        }
+
+        // Función para manejar la subida de fotos
+        document.getElementById('photoInput').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const preview = document.getElementById('photoPreview');
+            
+            // Limpiar preview anterior
+            preview.innerHTML = '';
+            
+            // Mostrar cada foto seleccionada
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        preview.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+
+        // Efecto de carga suave
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
