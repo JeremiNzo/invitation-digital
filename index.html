@@ -453,6 +453,52 @@
             color: #a8d5a8;
         }
 
+        .bank-accounts {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .bank-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .account-item {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #a8d5a8;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .bank-name {
+            font-family: 'Arial', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .account-number {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            font-weight: bold;
+            color: #a8d5a8;
+            background: #f0f8f0;
+            padding: 5px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
         .section p {
             color: #666;
             line-height: 1.6;
@@ -696,16 +742,16 @@
 
         <div class="graduation-photo-section">
             <div class="photo-top-band"></div>
-            <img src="graduada.jpg" alt="Graduada celebrando" style="width: 100%; height: 250px; object-fit: cover; display: block; clip-path: polygon(0% 3%, 10% 1%, 20% 2%, 30% 0%, 40% 1%, 50% 0%, 60% 1%, 70% 0%, 80% 1%, 90% 0%, 100% 2%, 100% 97%, 90% 99%, 80% 98%, 70% 99%, 60% 98%, 50% 99%, 40% 98%, 30% 99%, 20% 98%, 10% 99%, 0% 97%);">
+            <img src="foto3.jpeg" alt="Graduada celebrando" style="width: 100%; height: 303px; object-fit: cover; display: block; clip-path: polygon(0% 3%, 10% 1%, 20% 2%, 30% 0%, 40% 1%, 50% 0%, 60% 1%, 70% 0%, 80% 1%, 90% 0%, 100% 2%, 100% 97%, 90% 99%, 80% 98%, 70% 99%, 60% 98%, 50% 99%, 40% 98%, 30% 99%, 20% 98%, 10% 99%, 0% 97%);">
         </div>
 
         <div class="date-section">
-            <h3>DICIEMBRE 12 2025</h3>
+            <h3>OCTUBRE 07 2025</h3>
         </div>
 
         <div class="profile-section">
             <div class="profile-frame">
-                <img src="perfil.png" alt="Perfil de graduada" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                <img src="foto5.jpeg" alt="Perfil de graduada" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
             </div>
         </div>
 
@@ -728,7 +774,7 @@
                     </div>
                     <div class="timeline-text">
                         <div class="timeline-title">MISA</div>
-                        <div class="timeline-time">15:00 HRS.</div>
+                        <div class="timeline-time">07:00 PM</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -737,7 +783,7 @@
                     </div>
                     <div class="timeline-text">
                         <div class="timeline-title">RECEPCIÓN</div>
-                        <div class="timeline-time">17:00 HRS.</div>
+                        <div class="timeline-time">08:30 PM</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -746,7 +792,7 @@
                     </div>
                     <div class="timeline-text">
                         <div class="timeline-title">BRINDIS</div>
-                        <div class="timeline-time">18:30 HRS.</div>
+                        <div class="timeline-time">10:00 PM</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -755,7 +801,7 @@
                     </div>
                     <div class="timeline-text">
                         <div class="timeline-title">CENA</div>
-                        <div class="timeline-time">20:00 HRS.</div>
+                        <div class="timeline-time">01:00 AM</div>
                     </div>
                 </div>
             </div>
@@ -765,25 +811,25 @@
             <div class="event-section">
                 <h2>Misa de Salud</h2>
                 <div class="event-info">
-                    <div class="event-time">15:00 HRS.</div>
-                    <div class="event-location">PARROQUIA SAN MIGUEL<br>Av. Papa Paulo, Calle España</div>
-                    <button class="location-button" onclick="openLocation()">VER UBICACIÓN</button>
+                    <div class="event-time">07:00 PM</div>
+                    <div class="event-location">PARROQUIA SAN ANDRÉS<br>Huaycan, Plaza de Armas, Ate</div>
+                    <button class="location-button" onclick="openLocation('https://maps.app.goo.gl/U6wr7Mzt1xcsw6px6')">VER UBICACIÓN</button>
                 </div>
             </div>
 
             <div class="event-section">
                 <h2>Recepción</h2>
                 <div class="event-info">
-                    <div class="event-time">17:00 HRS.</div>
-                    <div class="event-location">SALÓN LA ROCHELLE<br>Av. Santos Dumont, 3er y 4to Anillo</div>
-                    <button class="location-button" onclick="openLocation()">VER UBICACIÓN</button>
+                    <div class="event-time">08:30 PM</div>
+                    <div class="event-location">MZ. "G" LT "13"<br>Pariachi Primera Etapa, Ate <br>A una cuadra de pizzeria Donatto's</div>
+                    <button class="location-button" onclick="openLocation('https://maps.app.goo.gl/ZpbsgCxWVvjQWXKv9')">VER UBICACIÓN</button>
                 </div>
             </div>
 
             <div class="event-section">
                 <h2>Confirma tu Asistencia</h2>
                 <div class="rsvp-info">
-                    <p>POR FAVOR CONFIRMANOS TU ASISTENCIA<br>ANTES DEL 15 DE DICIEMBRE</p>
+                    <p>POR FAVOR CONFIRMANOS TU ASISTENCIA</p>
                     <button class="rsvp-button" onclick="openRSVP()">ENVIAR MENSAJE</button>
                 </div>
             </div>
@@ -792,15 +838,27 @@
                 <h2>Sugerencia de regalos</h2>
                 <div class="gift-info">
                     <p>REGALO OBLIGATORIO:<br>¡SU PRESENCIA!</p>
-                    <p>PERO SI QUIERES REGALAR ALGO TE<br>DAMOS ESTA OPCIÓN:</p>
-                    <p class="gift-option">EFECTIVO</p>
-                    <div class="gift-icon">💌</div>
+                    <p>Regalo opcional 🎁</p>
+                    <p>Pero si quieres apoyarme para mis estudios de maestría. ¡Lo que nazca de tu corazón será bien recibido! 💖</p>
+
+                    
+                    <div class="bank-accounts">
+                        <p class="bank-title">💳 CUENTA BANCARIA</p>
+                        <div class="account-item">
+                            <p class="bank-name">🏦 BCP Soles</p>
+                            <p class="account-number">19106559506062</p>
+                        </div>
+                        <div class="account-item">
+                            <p class="bank-name">🏦 Interbancaria</p>
+                            <p class="account-number">00219110655950606257</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="graduation-footer-image">
-            <img src="graduados.jpg" alt="Graduados celebrando" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+            <img src="foto4.jpeg" alt="Graduados celebrando" style="width: 100%; height: 300px; object-fit: cover; display: block;">
         </div>
 
         <div class="footer">
@@ -810,17 +868,15 @@
 
     <script>
         // Función para abrir ubicación en Google Maps
-        function openLocation() {
-            const address = "Blvd. Universidad No. 320, Col. San Ángel, CDMX";
-            const encodedAddress = encodeURIComponent(address);
-            window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+        function openLocation(address) {
+            window.open(address, '_blank');
         }
 
         // Función para abrir RSVP
         function openRSVP() {
             const message = "¡Hola! Confirmo mi asistencia a la fiesta de graduación. ¡Gracias por la invitación!";
             const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/5215512345678?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/51952124887?text=${encodedMessage}`, '_blank');
         }
 
         // Función para manejar la subida de fotos
