@@ -487,6 +487,12 @@
             margin-bottom: 5px;
         }
 
+        .account-number-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .account-number {
             font-family: 'Courier New', monospace;
             font-size: 14px;
@@ -497,6 +503,31 @@
             border-radius: 4px;
             display: inline-block;
             letter-spacing: 1px;
+            margin: 0;
+            flex: 1;
+        }
+
+        .copy-button {
+            background: #a8d5a8;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(168, 213, 168, 0.3);
+        }
+
+        .copy-button:hover {
+            background: #95c695;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(168, 213, 168, 0.4);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(168, 213, 168, 0.3);
         }
 
         .section p {
@@ -846,11 +877,17 @@
                         <p class="bank-title">💳 CUENTA BANCARIA</p>
                         <div class="account-item">
                             <p class="bank-name">🏦 BCP Soles</p>
-                            <p class="account-number">19106559506062</p>
+                            <div class="account-number-container">
+                                <p class="account-number" id="bcp-account">19106559506062</p>
+                                <button class="copy-button" onclick="copyAccount('bcp-account')">📋</button>
+                            </div>
                         </div>
                         <div class="account-item">
                             <p class="bank-name">🏦 Interbancaria</p>
-                            <p class="account-number">00219110655950606257</p>
+                            <div class="account-number-container">
+                                <p class="account-number" id="interbancaria-account">00219110655950606257</p>
+                                <button class="copy-button" onclick="copyAccount('interbancaria-account')">📋</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -877,6 +914,46 @@
             const message = "¡Hola! Confirmo mi asistencia a la fiesta de graduación. ¡Gracias por la invitación!";
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/51952124887?text=${encodedMessage}`, '_blank');
+        }
+
+        // Función para copiar número de cuenta
+        function copyAccount(accountId) {
+            const accountElement = document.getElementById(accountId);
+            const accountNumber = accountElement.textContent;
+            
+            // Usar la API del portapapeles
+            navigator.clipboard.writeText(accountNumber).then(function() {
+                // Cambiar temporalmente el botón para mostrar confirmación
+                const button = accountElement.nextElementSibling;
+                const originalText = button.textContent;
+                button.textContent = '✅';
+                button.style.background = '#28a745';
+                
+                // Restaurar el botón después de 2 segundos
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = '#a8d5a8';
+                }, 2000);
+            }).catch(function(err) {
+                // Fallback para navegadores que no soportan la API del portapapeles
+                const textArea = document.createElement('textarea');
+                textArea.value = accountNumber;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Mostrar confirmación visual
+                const button = accountElement.nextElementSibling;
+                const originalText = button.textContent;
+                button.textContent = '✅';
+                button.style.background = '#28a745';
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = '#a8d5a8';
+                }, 2000);
+            });
         }
 
         // Función para manejar la subida de fotos
