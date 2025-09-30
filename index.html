@@ -317,33 +317,7 @@
             position: relative;
         }
 
-        .content::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-250%);
-            width: 80px;
-            height: 200px;
-            background: url('flores.png') no-repeat center center;
-            background-size: contain;
-            opacity: 0.8;
-            z-index: 1;
-        }
-        .content::after {
-            content: '';
-            position: absolute;
-            left: 270px;
-            top: 50%;
-            transform: translateY(-250%);
-            width: 80px;
-            height: 200px;
-            background: url('flores.png') no-repeat center center;
-            background-size: contain;
-            opacity: 0.8;
-            z-index: 1;
-        }
-
+        
         .event-section {
             margin-bottom: 50px;
             text-align: center;
@@ -814,7 +788,7 @@
                     </div>
                     <div class="timeline-text">
                         <div class="timeline-title">RECEPCIÓN</div>
-                        <div class="timeline-time">08:30 PM</div>
+                        <div class="timeline-time">08:00 PM</div>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -840,7 +814,7 @@
 
         <div class="content">
             <div class="event-section">
-                <h2>Misa de Salud</h2>
+                <h2>Misa</h2>
                 <div class="event-info">
                     <div class="event-time">07:00 PM</div>
                     <div class="event-location">PARROQUIA SAN ANDRÉS<br>Huaycan, Plaza de Armas, Ate</div>
@@ -851,7 +825,7 @@
             <div class="event-section">
                 <h2>Recepción</h2>
                 <div class="event-info">
-                    <div class="event-time">08:30 PM</div>
+                    <div class="event-time">08:00 PM</div>
                     <div class="event-location">MZ. "G" LT "13"<br>Pariachi Primera Etapa, Ate <br>A una cuadra de pizzeria Donatto's</div>
                     <button class="location-button" onclick="openLocation('https://maps.app.goo.gl/ZpbsgCxWVvjQWXKv9')">VER UBICACIÓN</button>
                 </div>
@@ -874,19 +848,11 @@
 
                     
                     <div class="bank-accounts">
-                        <p class="bank-title">💳 CUENTA BANCARIA</p>
+                        <p class="bank-title">💳 YAPE</p>
                         <div class="account-item">
-                            <p class="bank-name">🏦 BCP Soles</p>
                             <div class="account-number-container">
-                                <p class="account-number" id="bcp-account">19106559506062</p>
-                                <button class="copy-button" onclick="copyAccount('bcp-account')">📋</button>
-                            </div>
-                        </div>
-                        <div class="account-item">
-                            <p class="bank-name">🏦 Interbancaria</p>
-                            <div class="account-number-container">
-                                <p class="account-number" id="interbancaria-account">00219110655950606257</p>
-                                <button class="copy-button" onclick="copyAccount('interbancaria-account')">📋</button>
+                                <p class="account-number" id="yape-account">952124887</p>
+                                <button class="copy-button" onclick="copyAccount('yape-account')">📋</button>
                             </div>
                         </div>
                     </div>
